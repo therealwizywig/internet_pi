@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-REPO_OWNER="${REPO_OWNER:-CruGlobal}"
+REPO_OWNER="${REPO_OWNER:-therealwizywig}"
 REPO_NAME="${REPO_NAME:-internet-pi}"
 BRANCH="${BRANCH:-master}"
 # UPDATE_INTERVAL=3600  # Check every hour
@@ -73,19 +73,6 @@ if [ "$LATEST_COMMIT" != "$CURRENT_COMMIT" ]; then
         yq e ".custom_metrics_location = \"$LOCATION\"" -i /scry-pi/config.yml
         log "custom_metrics_location set to $LOCATION"
     fi
-
-    # # Run the deployment
-    # log "Running deployment..."
-    # ~/.local/bin/ansible-playbook main.yml -e "runner_user=$USER" -i inventory.ini
-    
-    # # Check if deployment was successful
-    # if [ $? -eq 0 ]; then
-    #     log "Deployment completed successfully"
-    # else
-    #     log "Deployment failed"
-    #     rm -f "$LOCK_FILE"
-    #     exit 1
-    # fi
 else
     log "No updates available"
 fi
