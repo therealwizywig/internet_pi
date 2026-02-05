@@ -22,10 +22,11 @@ error() {
     echo -e "${RED}[$(date '+%Y-%m-%d %H:%M:%S')] ERROR: $1${NC}"
 }
 
-if [ ! -f "$CONFIG_FILE" ]; then
+if [ ! -f "$CONFIG_DIR" ]; then
     # Ensure the config directory exists
     mkdir -p "$CONFIG_DIR"
-    # try cp example.config.yml
+    cp example.config.yml "$CONFIG_DIR/"
+fi
     if [ -f "$CONFIG_DIR/example.config.yml" ]; then
         cp "$CONFIG_DIR/example.config.yml" "$CONFIG_FILE"
         log "Created $CONFIG_FILE from example.config.yml."
@@ -39,7 +40,6 @@ if [ ! -f "$CONFIG_FILE" ]; then
         error "config.yml not found at $CONFIG_FILE and example.config.yml not found in $CONFIG_DIR. Please ensure one exists."
         exit 1
     fi
-fi
 
 # Read current values
 declare -A config
