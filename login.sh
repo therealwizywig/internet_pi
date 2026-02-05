@@ -30,12 +30,6 @@ fi
     if [ -f "$CONFIG_DIR/example.config.yml" ]; then
         cp "$CONFIG_DIR/example.config.yml" "$CONFIG_FILE"
         log "Created $CONFIG_FILE from example.config.yml."
-        # Clean up default example values - Linux compatible sed
-        sed -i 's/^custom_metrics_collection_interval: ".*"/custom_metrics_collection_interval: ""/' "$CONFIG_FILE"
-        sed -i 's|^custom_metrics_pghost: ".*"|custom_metrics_pghost: ""|' "$CONFIG_FILE"
-        sed -i 's|^custom_metrics_pgdatabase: ".*"|custom_metrics_pgdatabase: ""|' "$CONFIG_FILE"
-        sed -i 's|^custom_metrics_pguser: ".*"|custom_metrics_pguser: ""|' "$CONFIG_FILE"
-        sed -i 's|^custom_metrics_pgpassword: ".*"|custom_metrics_pgpassword: ""|' "$CONFIG_FILE"
     else
         error "config.yml not found at $CONFIG_FILE and example.config.yml not found in $CONFIG_DIR. Please ensure one exists."
         exit 1
