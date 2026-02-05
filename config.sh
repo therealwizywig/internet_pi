@@ -94,7 +94,7 @@ show_help() {
 
 update_setup_script() {
     log "Ensuring latest setup-pi.sh is present..."
-    curl -fsSL "https://github.com/therealwizywig/internet_pi/blob/main/setup-pi.sh" -o "$SETUP_SCRIPT"
+    curl -fsSL "https://github.com/therealwizywig/internet-pi/blob/main/setup-pi.sh" -o "$SETUP_SCRIPT"
     chmod +x "$SETUP_SCRIPT"
     log "setup-pi.sh updated to latest version."
 }
