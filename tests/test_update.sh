@@ -5,7 +5,7 @@ echo "Basic update.sh test"
 
 # 1. Check that update.sh can contact the repo and get a commit hash
 REPO_OWNER="therealwizywig"
-REPO_NAME="internet_pi"
+REPO_NAME="internet-pi"
 BRANCH="master"
 
 LATEST_COMMIT=$(curl -s "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/commits/$BRANCH" | grep -m 1 '"sha":' | cut -d'"' -f4)
