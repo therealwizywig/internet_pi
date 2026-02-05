@@ -16,13 +16,16 @@ cd $HOME
 
 git clone https://github.com/CruGlobal/internet-pi.git
 cd internet-pi
-chmod +x ./setup-pi.sh ./login.sh
+chmod +x ./setup-pi.sh ./login.sh ./dns_fix.sh
 
 # Log in
 sudo ./login.sh
 
 # Run the setup script
 sudo ./setup-pi.sh
+
+# Run the dns_fix script
+sudo ./dns_fix.sh
 ```
 
 This will:
@@ -41,12 +44,6 @@ sudo bash -c "grep -q '^nameserver 1.1.1.1' /etc/resolv.conf || sudo sed -i '/^n
 ---
 
 **A Raspberry Pi Configuration for Internet connectivity**
-
-I have had a couple Pis doing random Internet-related duties for years. It's finally time to formalize their configs and make all the DNS/ad-blocking/monitoring stuff encapsulated into one Ansible project.
-
-So that's what this is.
-
-## Features
 
 ## Custom Metrics Service
 
@@ -117,11 +114,7 @@ You should use a Raspberry Pi 4 model B or better. The Pi 4 and later generation
 
 Older Pis work, but have many limitations, like a slower CPU and sometimes very-slow NICs that limit the speed test capability to 100 Mbps or 300 Mbps on the Pi 3 model B+.
 
-Other computers and VMs may run this configuration as well, but it is only regularly tested on a Raspberry Pi.
-
 The configuration is tested against Raspberry Pi OS, both 64-bit and 32-bit, and runs great on that or a generic Debian installation.
-
-It should also work with Ubuntu for Pi, or Arch Linux, but has not been tested on other operating systems.
 
 ## Setup
 
@@ -228,4 +221,4 @@ MIT
 
 ## Author
 
-This project was created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/).
+This project was originally created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/).
