@@ -14,7 +14,7 @@ sudo apt-get update && sudo apt-get install -y git
 # You can use any directory you like, e.g. $HOME/internet-pi
 cd $HOME
 
-git clone https://github.com/CruGlobal/internet-pi.git
+git clone https://github.com/therealwizywig/internet-pi.git
 cd internet-pi
 chmod +x ./setup-pi.sh ./login.sh ./dns_fix.sh
 
